@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tshiamo Funeral Home - Honoring Life With Dignity</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -16,27 +16,27 @@
       :root {
         --primary: #2ecdc4;
         --primary-light: #3d7a77;
+        --primary-dark: #1a8b84;
         --accent: #b8936e;
+        --accent-light: #d4b088;
         --text-dark: #2d3748;
         --text-light: #ffffff;
         --text-muted: #718096;
         --bg-light: #fafafa;
         --bg-warm: #f8f6f3;
+        --border-light: rgba(0, 0, 0, 0.08);
       }
-
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
-
       body {
         font-family: "Inter", sans-serif;
         color: var(--text-dark);
         line-height: 1.6;
         overflow-x: hidden;
       }
-
       h1,
       h2,
       h3,
@@ -45,25 +45,22 @@
         font-weight: 400;
         letter-spacing: -0.02em;
       }
-
-      /* Navigation */
+      /* Enhanced Navigation */
       nav {
         position: fixed;
         top: 0;
         width: 100%;
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(10px);
         z-index: 1000;
-        padding: 1.2rem 5%;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 1rem 5%;
+        border-bottom: 1px solid var(--border-light);
         transition: all 0.3s ease;
       }
-
       nav.scrolled {
-        padding: 0.8rem 5%;
-        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        padding: 0.7rem 5%;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
       }
-
       nav .container {
         max-width: 1400px;
         margin: 0 auto;
@@ -71,32 +68,32 @@
         justify-content: space-between;
         align-items: center;
       }
-
       .logo-container {
         display: flex;
         align-items: center;
         gap: 1rem;
       }
-
       .logo-img {
-        height: 45px;
+        height: 50px;
         filter: brightness(0.95);
+        transition: transform 0.3s;
       }
-
+      .logo-img:hover {
+        transform: scale(1.05);
+      }
       .logo-text {
         font-family: "Cormorant Garamond", serif;
-        font-size: 1.5rem;
+        font-size: 1.6rem;
         font-weight: 600;
         color: var(--primary);
         letter-spacing: 0.08em;
       }
-
       nav ul {
         display: flex;
         gap: 2.5rem;
         list-style: none;
+        align-items: center;
       }
-
       nav a {
         color: var(--text-dark);
         text-decoration: none;
@@ -105,7 +102,6 @@
         transition: color 0.3s;
         position: relative;
       }
-
       nav a::after {
         content: "";
         position: absolute;
@@ -116,38 +112,47 @@
         background: var(--primary);
         transition: width 0.3s;
       }
-
       nav a:hover {
         color: var(--primary);
       }
-
       nav a:hover::after {
         width: 100%;
       }
-
+      .nav-cta {
+        background: var(--primary);
+        color: white !important;
+        padding: 0.7rem 1.5rem;
+        border-radius: 4px;
+        font-weight: 600;
+      }
+      .nav-cta::after {
+        display: none;
+      }
+      .nav-cta:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+      }
       .mobile-toggle {
         display: none;
         flex-direction: column;
         gap: 4px;
         cursor: pointer;
       }
-
       .mobile-toggle span {
         width: 25px;
         height: 2px;
         background: var(--text-dark);
         transition: all 0.3s;
       }
-
-      /* Hero */
+      /* Enhanced Hero */
       .hero {
         height: 100vh;
         min-height: 700px;
         background:
           linear-gradient(
             135deg,
-            rgba(44, 95, 93, 0.88) 0%,
-            rgba(45, 55, 72, 0.92) 100%
+            rgba(44, 95, 93, 0.4) 0%,
+            rgba(45, 55, 72, 0.35) 100%
           ),
           url("https://tshiamofuneralhome.co.za/assets/Tshiamo Background.jpg")
             center/cover no-repeat fixed;
@@ -159,12 +164,16 @@
         position: relative;
         padding: 0 5%;
       }
-
+      /* Remove the gradient overlay at bottom */
+      .hero::before {
+        display: none;
+      }
       .hero-content {
         max-width: 900px;
         animation: fadeUp 1s ease-out;
+        position: relative;
+        z-index: 1;
       }
-
       @keyframes fadeUp {
         from {
           opacity: 0;
@@ -175,26 +184,25 @@
           transform: translateY(0);
         }
       }
-
       .hero h1 {
-        font-size: 4.5rem;
+        font-size: 4.8rem;
         margin-bottom: 1.5rem;
         line-height: 1.1;
         font-weight: 300;
+        text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
       }
-
       .hero p {
-        font-size: 1.25rem;
+        font-size: 1.3rem;
         margin-bottom: 2.5rem;
         opacity: 0.95;
         line-height: 1.8;
         font-weight: 300;
+        text-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
       }
-
       .cta-btn {
         background: var(--primary);
         color: white;
-        padding: 1rem 2.5rem;
+        padding: 1.1rem 2.8rem;
         border-radius: 4px;
         text-decoration: none;
         font-weight: 600;
@@ -203,485 +211,1116 @@
         text-transform: uppercase;
         display: inline-block;
         transition: all 0.4s;
+        box-shadow: 0 8px 25px rgba(46, 205, 196, 0.3);
       }
-
       .cta-btn:hover {
         background: var(--primary-light);
         transform: translateY(-3px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 12px 35px rgba(46, 205, 196, 0.4);
       }
-
-      /* About Section */
-      .about {
-        padding: 100px 5%;
-        background: var(--bg-warm);
+      /* Trust Bar - Integrated Glassmorphism Style */
+      .trust-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        padding: 3rem 5%;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
       }
-
-      .about-container {
-        max-width: 1200px;
+      .trust-bar-container {
+        max-width: 1400px;
         margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 3rem;
         text-align: center;
       }
-
-      .about h2 {
-        font-size: 3.5rem;
-        margin-bottom: 1.5rem;
+      .trust-item {
+        padding: 0;
+        background: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border: none;
+        transition: transform 0.4s;
+      }
+      .trust-item:hover {
+        transform: translateY(-5px);
+      }
+      .trust-item i {
+        font-size: 2.5rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      }
+      .trust-number {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 3rem;
+        font-weight: 600;
+        color: white;
+        margin-bottom: 0.5rem;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      }
+      .trust-label {
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 0.95rem;
+        font-weight: 500;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+      }
+      /* Responsive adjustments */
+      @media (max-width: 968px) {
+        .trust-bar-container {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 2rem;
+        }
+      }
+      @media (max-width: 480px) {
+        .trust-bar {
+          padding: 2rem 5%;
+        }
+        .trust-bar-container {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+        .trust-number {
+          font-size: 2.5rem;
+        }
+        .trust-item i {
+          font-size: 2rem;
+        }
+      }
+      /* Enhanced About Section */
+      .about {
+        padding: 120px 5%;
+        background: var(--bg-warm);
+      }
+      .about-container {
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+      .section-label {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--primary);
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+      .section-title {
+        font-size: 3.8rem;
+        margin-bottom: 1rem;
         color: var(--text-dark);
       }
-
-      .about-intro {
+      .section-subtitle {
         font-size: 1.15rem;
         color: var(--text-muted);
         max-width: 800px;
-        margin: 0 auto 4rem;
+        margin: 0 auto;
         line-height: 1.9;
       }
-
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        margin-top: 4rem;
+        align-items: center;
+      }
+      .about-image {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      }
+      .about-image img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+      .about-image:hover img {
+        transform: scale(1.05);
+      }
+      .about-text h3 {
+        font-size: 2.2rem;
+        color: var(--text-dark);
+        margin-bottom: 1.5rem;
+      }
+      .about-text p {
+        color: var(--text-muted);
+        line-height: 1.9;
+        margin-bottom: 1.5rem;
+        font-size: 1.05rem;
+      }
       .mission-vision {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 3rem;
-        margin-top: 3rem;
+        margin-top: 5rem;
       }
-
       .mv-card {
         background: white;
-        padding: 3rem;
+        padding: 3.5rem;
         border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-        transition: transform 0.3s;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s;
         text-align: left;
+        position: relative;
+        overflow: hidden;
       }
-
+      .mv-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: var(--primary);
+        transform: scaleY(0);
+        transition: transform 0.4s;
+      }
+      .mv-card:hover::before {
+        transform: scaleY(1);
+      }
       .mv-card:hover {
-        transform: translateY(-5px);
+        transform: translateY(-8px);
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
       }
-
-      .mv-card h3 {
-        font-size: 2rem;
+      .mv-card i {
+        font-size: 2.5rem;
         color: var(--primary);
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
       }
-
+      .mv-card h3 {
+        font-size: 2.2rem;
+        color: var(--primary);
+        margin-bottom: 1.2rem;
+      }
       .mv-card p {
         color: var(--text-muted);
-        line-height: 1.8;
+        line-height: 1.9;
+        font-size: 1.05rem;
       }
-
-      /* Services */
+      /* Enhanced Services - Larger Cards */
       .services {
-        padding: 100px 5%;
+        padding: 120px 5%;
         background: white;
       }
-
       .services-container {
-        max-width: 1300px;
+        max-width: 1400px;
         margin: 0 auto;
       }
-
-      .services h2 {
-        font-size: 3.5rem;
-        text-align: center;
-        margin-bottom: 1rem;
-      }
-
-      .services-subtitle {
-        text-align: center;
-        font-size: 1.1rem;
-        color: var(--text-muted);
-        margin-bottom: 4rem;
-      }
-
       .services-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+        margin-top: 4rem;
       }
-
       .service-card {
         background: var(--bg-warm);
-        border-radius: 8px;
+        border-radius: 12px;
         overflow: hidden;
         transition: all 0.4s;
         position: relative;
+        display: flex;
+        flex-direction: column; /* Changed from grid to flex column */
+        min-height: 320px;
       }
-
       .service-card::before {
         content: "";
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
-        height: 3px;
-        background: var(--primary);
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
         transform: scaleX(0);
         transition: transform 0.4s;
+        z-index: 1;
       }
-
       .service-card:hover::before {
         transform: scaleX(1);
       }
-
       .service-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 15px 40px rgba(44, 95, 93, 0.12);
+        transform: translateY(-10px);
+        box-shadow: 0 20px 60px rgba(44, 95, 93, 0.15);
       }
-
+      .service-img-container {
+        position: relative;
+        overflow: hidden;
+        height: 416px; /* Increased from 260px by 60% (260 * 1.6 = 416) */
+        width: 100%; /* Full width */
+      }
       .service-img {
         width: 100%;
-        height: 220px;
+        height: 100%;
         object-fit: cover;
-        transition: transform 0.4s;
+        transition: transform 0.5s;
       }
-
       .service-card:hover .service-img {
-        transform: scale(1.05);
+        transform: scale(1.1);
       }
-
+      .service-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(46, 205, 196, 0.8),
+          rgba(61, 122, 119, 0.8)
+        );
+        opacity: 0;
+        transition: opacity 0.4s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .service-card:hover .service-overlay {
+        opacity: 1;
+      }
+      .service-overlay i {
+        font-size: 4rem;
+        color: white;
+      }
       .service-content {
-        padding: 2rem;
+        padding: 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 1; /* Take remaining space */
       }
-
-      .service-content i {
-        font-size: 2.2rem;
-        color: var(--primary);
+      .service-badge {
+        display: inline-block;
+        padding: 0.4rem 1rem;
+        background: var(--primary);
+        color: white;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
         margin-bottom: 1rem;
-        display: block;
+        align-self: flex-start;
       }
-
       .service-content h3 {
-        font-size: 1.6rem;
-        margin-bottom: 0.8rem;
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+        color: var(--text-dark);
       }
-
       .service-content p {
         color: var(--text-muted);
-        line-height: 1.7;
-        font-size: 0.95rem;
+        line-height: 1.8;
+        font-size: 1.05rem;
+        margin-bottom: 1.5rem;
       }
-
-      /* Testimonials */
-      .testimonials {
-        padding: 100px 5%;
+      .service-features {
+        list-style: none;
+        margin-bottom: 1.5rem;
+      }
+      .service-features li {
+        padding: 0.5rem 0;
+        color: var(--text-muted);
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+      .service-features li i {
+        color: var(--primary);
+        font-size: 0.9rem;
+      }
+      .service-link {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: gap 0.3s;
+      }
+      .service-link:hover {
+        gap: 1rem;
+      }
+      /* Why Choose Us - New Section */
+      .why-choose {
+        padding: 120px 5%;
         background: var(--bg-warm);
       }
-
-      .testimonials-container {
-        max-width: 1200px;
+      .why-choose-container {
+        max-width: 1400px;
         margin: 0 auto;
       }
-
-      .testimonials h2 {
-        font-size: 3.5rem;
-        text-align: center;
-        margin-bottom: 1rem;
-      }
-
-      .testimonials-subtitle {
-        text-align: center;
-        color: var(--text-muted);
-        margin-bottom: 3rem;
-        font-size: 1.1rem;
-      }
-
-      .testimonials-grid {
+      .why-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
+        gap: 2.5rem;
+        margin-top: 4rem;
       }
-
-      .testimonial-card {
+      .why-card {
         background: white;
-        padding: 2.5rem;
-        border-radius: 8px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        padding: 3rem 2.5rem;
+        border-radius: 12px;
         text-align: center;
+        transition: all 0.4s;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
       }
-
-      .testimonial-card p {
-        font-style: italic;
+      .why-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+      }
+      .why-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-light)
+        );
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        transition: transform 0.4s;
+      }
+      .why-card:hover .why-icon {
+        transform: rotateY(360deg);
+      }
+      .why-icon i {
+        font-size: 2rem;
+        color: white;
+      }
+      .why-card h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        color: var(--text-dark);
+      }
+      .why-card p {
         color: var(--text-muted);
-        margin-bottom: 1.5rem;
-        line-height: 1.7;
+        line-height: 1.8;
       }
-
-      .testimonial-card h4 {
-        color: var(--primary);
-        font-size: 1.1rem;
-      }
-
-      /* Contact */
-      .contact {
-        padding: 100px 5%;
+      /* Process Section - ALTERNATING TIMELINE */
+      .process {
+        padding: 120px 5%;
         background: white;
+        overflow: visible;
       }
-
-      .contact-container {
-        max-width: 1200px;
+      .process-container {
+        max-width: 1400px;
         margin: 0 auto;
       }
-
-      .contact h2 {
-        font-size: 3.5rem;
-        text-align: center;
-        margin-bottom: 1rem;
+      .process-timeline {
+        position: relative;
+        margin-top: 5rem;
+        padding: 3rem 0;
       }
-
-      .contact-subtitle {
-        text-align: center;
-        color: var(--text-muted);
-        margin-bottom: 4rem;
-        font-size: 1.1rem;
+      /* Center vertical line */
+      .process-timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: var(--border-light);
+        transform: translateX(-50%);
       }
-
-      .contact-grid {
+      .timeline-row {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4rem;
-        align-items: start;
+        grid-template-columns: 1fr auto 1fr;
+        gap: 0;
+        margin-bottom: 4rem;
+        align-items: center;
+        position: relative;
       }
-
-      .contact-info {
-        background: var(--bg-warm);
-        padding: 3rem;
-        border-radius: 8px;
+      .timeline-row:last-child {
+        margin-bottom: 0;
       }
-
-      .contact-info h3 {
+      /* Center circle area */
+      .timeline-center {
+        width: 140px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+        position: relative;
+      }
+      .timeline-circle {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        border: 4px solid var(--primary);
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+      }
+      .timeline-row:hover .timeline-circle {
+        background: var(--primary);
+        color: white;
+        transform: scale(1.1);
+        box-shadow: 0 8px 30px rgba(46, 205, 196, 0.3);
+      }
+      /* Horizontal connecting lines */
+      .timeline-circle::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 50px;
+        height: 2px;
+        background: var(--border-light);
+      }
+      .timeline-row .timeline-circle::before {
+        left: -54px;
+      }
+      .timeline-circle::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 50px;
+        height: 2px;
+        background: var(--border-light);
+      }
+      .timeline-row .timeline-circle::after {
+        right: -54px;
+      }
+      /* Content areas */
+      .timeline-content {
+        padding: 2.5rem;
+        position: relative;
+      }
+      .timeline-left {
+        text-align: right;
+        padding-right: 3rem;
+      }
+      .timeline-right {
+        text-align: left;
+        padding-left: 3rem;
+      }
+      .timeline-empty {
+        visibility: hidden;
+      }
+      .timeline-content h3 {
         font-size: 2rem;
+        margin-bottom: 1rem;
         color: var(--primary);
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 600;
+        transition: all 0.3s;
+      }
+      .timeline-content p {
+        color: var(--text-muted);
+        line-height: 1.8;
+        font-size: 1.05rem;
+        max-width: 500px;
+      }
+      .timeline-left p {
+        margin-left: auto;
+      }
+      .timeline-right p {
+        margin-right: auto;
+      }
+      .timeline-row:hover .timeline-content h3 {
+        color: var(--accent);
+      }
+      /* Responsive Design */
+      @media (max-width: 968px) {
+        .timeline-row {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+        .process-timeline::before {
+          left: 45px;
+        }
+        .timeline-center {
+          width: 90px;
+          justify-content: flex-start;
+        }
+        .timeline-circle::before,
+        .timeline-circle::after {
+          display: none;
+        }
+        .timeline-content {
+          text-align: left !important;
+          padding: 0 0 0 120px !important;
+        }
+        .timeline-content p {
+          margin: 0 !important;
+        }
+        .timeline-empty {
+          display: none;
+        }
+        .timeline-left,
+        .timeline-right {
+          order: 2;
+        }
+        .timeline-center {
+          order: 1;
+        }
+      }
+      @media (max-width: 480px) {
+        .process {
+          padding: 80px 5%;
+        }
+        .timeline-circle {
+          width: 70px;
+          height: 70px;
+          font-size: 1.8rem;
+        }
+        .timeline-content {
+          padding-left: 100px !important;
+        }
+        .timeline-content h3 {
+          font-size: 1.6rem;
+        }
+        .timeline-content p {
+          font-size: 1rem;
+        }
+      }
+      /* Testimonials Carousel */
+      .testimonials {
+        padding: 120px 0;
+        background: var(--bg-warm);
+        position: relative;
+        width: 100%;
+      }
+      .testimonials-container {
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+      }
+      .carousel-wrapper {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+      }
+      .carousel-container {
+        overflow: hidden;
+        width: 100%;
+      }
+      .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        gap: 30px;
+        padding: 20px 5%;
+      }
+      .testimonial-card {
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        font-family: "Inter", sans-serif;
+        position: relative;
+        overflow: hidden;
+        padding: 3rem 2.5rem;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        flex: 0 0 calc(33.333% - 20px);
+        min-width: 0;
+        min-height: 420px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .testimonial-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+      }
+      .testimonial-header {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
         margin-bottom: 2rem;
       }
-
+      .testimonial-logo {
+        font-size: 2rem;
+        font-weight: bold;
+        font-family: "Cormorant Garamond", serif;
+        background: linear-gradient(135deg, var(--primary) 0%, #2d6a4f 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .testimonial-header h3 {
+        margin: 0;
+        color: #555;
+        font-size: 1.1rem;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        font-family: "Inter", sans-serif;
+      }
+      .testimonial-content {
+        position: relative;
+        padding: 0 1.5rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .quote-mark {
+        position: absolute;
+        font-size: 8rem;
+        line-height: 1;
+        color: rgba(46, 205, 196, 0.08);
+        font-family: Georgia, serif;
+        font-weight: bold;
+        pointer-events: none;
+        top: -40px;
+        left: 0;
+        z-index: 0;
+      }
+      blockquote {
+        margin: 0;
+        font-size: 1.15rem;
+        line-height: 1.8;
+        color: var(--text-dark);
+        position: relative;
+        z-index: 1;
+        font-family: "Inter", sans-serif;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+      }
+      .testimonial-footer {
+        margin-top: 2.5rem;
+        text-align: right;
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        padding-top: 1.5rem;
+      }
+      .client-name {
+        margin: 0;
+        font-weight: 700;
+        color: var(--text-dark);
+        font-size: 1.2rem;
+        font-family: "Cormorant Garamond", serif;
+      }
+      .rating {
+        margin-top: 0.8rem;
+        color: var(--accent);
+      }
+      .rating i {
+        font-size: 0.9rem;
+      }
+      /* Carousel Navigation */
+      .carousel-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        margin-top: 50px;
+        padding: 0 5%;
+      }
+      .carousel-btn {
+        background: var(--primary);
+        color: white;
+        border: none;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1.5rem;
+        box-shadow: 0 8px 25px rgba(46, 205, 196, 0.25);
+      }
+      .carousel-btn:hover {
+        background: var(--primary-dark);
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 12px 35px rgba(46, 205, 196, 0.35);
+      }
+      .carousel-btn:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+        opacity: 0.6;
+      }
+      .carousel-dots {
+        display: flex;
+        gap: 12px;
+      }
+      .dot {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #ddd;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .dot.active {
+        background: var(--primary);
+        transform: scale(1.3);
+        box-shadow: 0 0 0 2px rgba(46, 205, 196, 0.2);
+      }
+      /* Gallery Section - New */
+      .gallery {
+        padding: 120px 5%;
+        background: white;
+      }
+      .gallery-container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+        margin-top: 4rem;
+      }
+      .gallery-item {
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        aspect-ratio: 1;
+        cursor: pointer;
+      }
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+      .gallery-item:hover img {
+        transform: scale(1.1);
+      }
+      .gallery-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(46, 205, 196, 0.9);
+        opacity: 0;
+        transition: opacity 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+      }
+      .gallery-overlay i {
+        font-size: 2rem;
+        color: white;
+      }
+      /* Contact */
+      .contact {
+        padding: 120px 5%;
+        background: var(--bg-warm);
+      }
+      .contact-container {
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 5rem;
+        align-items: start;
+        margin-top: 4rem;
+      }
+      .contact-info {
+        background: white;
+        padding: 3.5rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      }
+      .contact-info h3 {
+        font-size: 2.2rem;
+        color: var(--primary);
+        margin-bottom: 2.5rem;
+      }
       .contact-item {
         display: flex;
         align-items: flex-start;
         gap: 1.5rem;
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--border-light);
       }
-
-      .contact-item i {
-        font-size: 1.4rem;
-        color: var(--primary);
-        margin-top: 0.2rem;
+      .contact-item:last-child {
+        border-bottom: none;
       }
-
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-light)
+        );
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .contact-icon i {
+        font-size: 1.3rem;
+        color: white;
+      }
       .contact-item h4 {
-        font-size: 1rem;
-        margin-bottom: 0.3rem;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
       }
-
       .contact-item p,
       .contact-item a {
         color: var(--text-muted);
         text-decoration: none;
+        transition: color 0.3s;
       }
-
       .contact-item a:hover {
         color: var(--primary);
       }
-
       .contact-form {
+        background: white;
+        padding: 3.5rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
         display: flex;
         flex-direction: column;
-        gap: 1.2rem;
+        gap: 1.5rem;
       }
-
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
       .contact-form input,
       .contact-form textarea {
-        padding: 1rem 1.3rem;
-        border: 1px solid #e2e8f0;
-        border-radius: 6px;
+        padding: 1.1rem 1.5rem;
+        border: 2px solid var(--border-light);
+        border-radius: 8px;
         font-family: inherit;
         font-size: 1rem;
         background: var(--bg-warm);
         transition: all 0.3s;
       }
-
       .contact-form input:focus,
       .contact-form textarea:focus {
         outline: none;
         border-color: var(--primary);
-        box-shadow: 0 0 0 3px rgba(44, 95, 93, 0.1);
+        box-shadow: 0 0 0 4px rgba(46, 205, 196, 0.1);
+        background: white;
       }
-
       .contact-form textarea {
-        min-height: 150px;
+        min-height: 180px;
         resize: vertical;
       }
-
       .contact-form button {
         background: var(--primary);
         color: white;
-        padding: 1rem;
+        padding: 1.2rem;
         border: none;
-        border-radius: 6px;
+        border-radius: 8px;
         font-weight: 600;
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         letter-spacing: 1px;
         text-transform: uppercase;
         cursor: pointer;
         transition: all 0.3s;
+        box-shadow: 0 8px 25px rgba(46, 205, 196, 0.25);
       }
-
       .contact-form button:hover {
-        background: var(--primary);
+        background: var(--primary-dark);
         transform: translateY(-2px);
+        box-shadow: 0 12px 35px rgba(46, 205, 196, 0.35);
       }
-
       /* Careers */
       .careers {
-        padding: 100px 5%;
-        background: var(--bg-warm);
+        padding: 120px 5%;
+        background: white;
       }
-
       .careers-container {
-        max-width: 1100px;
+        max-width: 1200px;
         margin: 0 auto;
-        text-align: center;
       }
-
-      .careers h2 {
-        font-size: 3.5rem;
-        margin-bottom: 1rem;
-      }
-
-      .careers-subtitle {
-        color: var(--text-muted);
-        margin-bottom: 3rem;
-        font-size: 1.1rem;
-      }
-
       .careers-intro {
         font-size: 1.1rem;
         color: var(--text-muted);
-        margin-bottom: 3rem;
-        line-height: 1.8;
+        margin-bottom: 4rem;
+        line-height: 1.9;
+        text-align: center;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
       }
-
       .positions-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
-        margin-bottom: 3rem;
+        gap: 2.5rem;
+        margin-bottom: 4rem;
       }
-
       .position-card {
-        background: white;
-        padding: 2.5rem;
-        border-radius: 8px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-        transition: transform 0.3s;
+        background: var(--bg-warm);
+        padding: 3rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        transition: all 0.4s;
+        text-align: center;
       }
-
       .position-card:hover {
-        transform: translateY(-5px);
+        transform: translateY(-8px);
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
       }
-
-      .position-card i {
-        font-size: 2.5rem;
-        color: var(--primary);
+      .position-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-light)
+        );
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+      }
+      .position-icon i {
+        font-size: 2rem;
+        color: white;
+      }
+      .position-card h3 {
+        font-size: 1.6rem;
         margin-bottom: 1rem;
       }
-
-      .position-card h3 {
-        font-size: 1.5rem;
-        margin-bottom: 0.8rem;
-      }
-
       .position-card p {
         color: var(--text-muted);
-        font-size: 0.95rem;
+        font-size: 1rem;
+        line-height: 1.7;
       }
-
       .apply-box {
-        background: white;
-        padding: 3rem;
-        border-radius: 8px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        background: var(--bg-warm);
+        padding: 4rem;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
       }
-
-      .apply-box p {
-        font-size: 1.1rem;
-        color: var(--text-muted);
+      .apply-box h3 {
+        font-size: 2rem;
         margin-bottom: 1rem;
+        color: var(--text-dark);
       }
-
+      .apply-box p {
+        font-size: 1.15rem;
+        color: var(--text-muted);
+        margin-bottom: 2rem;
+      }
       .apply-box a {
-        color: var(--primary);
-        font-weight: 600;
-        font-size: 1.2rem;
+        background: var(--primary);
+        color: white;
+        padding: 1.1rem 2.5rem;
+        border-radius: 8px;
         text-decoration: none;
+        font-weight: 600;
+        display: inline-block;
+        transition: all 0.3s;
       }
-
       .apply-box a:hover {
-        text-decoration: underline;
+        background: var(--primary-dark);
+        transform: translateY(-2px);
       }
-
       /* Footer */
       footer {
         background: var(--primary);
         color: rgba(255, 255, 255, 0.9);
-        padding: 4rem 5% 2rem;
-        text-align: center;
+        padding: 5rem 5% 2rem;
       }
-
-      footer h3 {
-        font-size: 2rem;
-        color: white;
-        margin-bottom: 1rem;
+      .footer-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 4rem;
+        margin-bottom: 3rem;
       }
-
-      footer p {
-        max-width: 600px;
-        margin: 0 auto 2rem;
-        opacity: 0.9;
-      }
-
-      .footer-nav {
-        margin: 2rem 0;
-      }
-
-      .footer-nav ul {
+      .footer-logo-container {
         display: flex;
-        justify-content: center;
-        gap: 2rem;
-        list-style: none;
-        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
       }
-
-      .footer-nav a {
+      .footer-full-logo {
+        width: 100%;
+        max-width: 100px;
+        height: auto;
+        margin-bottom: 1.5rem;
+        filter: brightness(
+          1.2
+        ); /* Slight brightening to stand out on teal background */
+      }
+      .footer-about {
+        max-width: 350px;
+        line-height: 1.8;
+        opacity: 0.85;
+        margin-top: 1rem;
+      }
+      .footer-section h4 {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+        color: white;
+        font-family: "Cormorant Garamond", serif;
+      }
+      .footer-section ul {
+        list-style: none;
+      }
+      .footer-section li {
+        margin-bottom: 0.8rem;
+      }
+      .footer-section a {
         color: rgba(255, 255, 255, 0.8);
         text-decoration: none;
-        transition: color 0.3s;
-      }
-
-      .footer-nav a:hover {
-        color: white;
-      }
-
-      .social-links {
-        margin: 2rem 0;
-      }
-
-      .social-links a {
-        color: white;
-        font-size: 1.5rem;
-        margin: 0 1rem;
         transition: all 0.3s;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
       }
-
-      .social-links a:hover {
-        color: var(--accent);
-        transform: translateY(-3px);
+      .footer-section a:hover {
+        color: white;
+        padding-left: 5px;
       }
-
-      footer .copyright {
-        margin-top: 2rem;
+      .footer-bottom {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
         opacity: 0.7;
         font-size: 0.9rem;
       }
-
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+      .social-links a {
+        width: 45px;
+        height: 45px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+        transition: all 0.3s;
+      }
+      .social-links a:hover {
+        background: white;
+        color: var(--primary);
+        transform: translateY(-3px);
+      }
       /* Floating Buttons */
       .floating-btns {
         position: fixed;
@@ -692,7 +1331,6 @@
         gap: 1rem;
         z-index: 999;
       }
-
       .floating-btn {
         width: 60px;
         height: 60px;
@@ -706,75 +1344,115 @@
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         transition: all 0.3s;
       }
-
       .floating-btn.whatsapp {
         background: #25d366;
       }
-
       .floating-btn.phone {
         background: var(--primary);
       }
-
       .floating-btn:hover {
-        transform: translateY(-5px) scale(1.05);
+        transform: translateY(-5px) scale(1.1);
         box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
       }
-
       /* Responsive */
-      @media (max-width: 1024px) {
-        .services-grid {
+      @media (max-width: 1200px) {
+        .service-card {
+          grid-template-columns: 1fr;
+        }
+        .service-img-container {
+          height: 280px;
+        }
+        .trust-bar-container {
           grid-template-columns: repeat(2, 1fr);
         }
-
+        .footer-content {
+          grid-template-columns: 1fr 1fr;
+        }
+        .testimonial-card {
+          flex: 0 0 calc(50% - 15px);
+        }
+      }
+      @media (max-width: 1024px) {
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+        .about-content {
+          grid-template-columns: 1fr;
+        }
         .mission-vision {
           grid-template-columns: 1fr;
         }
-
         .contact-grid {
           grid-template-columns: 1fr;
         }
+        .why-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .process-timeline::before {
+          left: 40px;
+        }
+        .process-step {
+          grid-template-columns: 80px 1fr;
+        }
+        .step-empty {
+          display: none;
+        }
+        .process-step:nth-child(even) .step-content:first-child {
+          order: 2;
+        }
+        .process-step:nth-child(even) .step-number {
+          order: 1;
+        }
+        .gallery-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
       }
-
       @media (max-width: 768px) {
         nav ul {
           display: none;
         }
-
         .mobile-toggle {
           display: flex;
         }
-
         .hero h1 {
+          font-size: 3rem;
+        }
+        .hero p {
+          font-size: 1.15rem;
+        }
+        .section-title {
           font-size: 2.8rem;
         }
-
-        .hero p {
-          font-size: 1.1rem;
+        .trust-bar-container {
+          grid-template-columns: 1fr;
         }
-
-        .about h2,
-        .services h2,
-        .testimonials h2,
-        .contact h2,
-        .careers h2 {
-          font-size: 2.5rem;
-        }
-
-        .services-grid,
-        .testimonials-grid,
+        .why-grid,
         .positions-grid {
           grid-template-columns: 1fr;
         }
-
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .footer-content {
+          grid-template-columns: 1fr;
+        }
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+        .testimonial-card {
+          flex: 0 0 100%;
+        }
         .floating-btns {
           bottom: 1.5rem;
           right: 1.5rem;
         }
-
         .floating-btn {
           width: 55px;
           height: 55px;
           font-size: 1.4rem;
+        }
+        .footer-full-logo {
+          max-width: 300px;
         }
       }
     </style>
@@ -785,7 +1463,7 @@
       <div class="container">
         <div class="logo-container">
           <img
-            src="https://tshiamofuneralhome.co.za/assets/Tshiamo- Logo.png"
+            src="https://tshiamofuneralhome.co.za/assets/Tshiamo-%20Logo.png"
             alt="Tshiamo Logo"
             class="logo-img"
           />
@@ -795,9 +1473,11 @@
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
+          <li><a href="#why-choose">Why Us</a></li>
           <li><a href="#testimonials">Testimonials</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="#careers">Careers</a></li>
+          <li><a href="#contact" class="nav-cta">24/7 Support</a></li>
         </ul>
         <div class="mobile-toggle">
           <span></span>
@@ -806,7 +1486,6 @@
         </div>
       </div>
     </nav>
-
     <!-- Hero Section -->
     <section class="hero" id="home">
       <div class="hero-content">
@@ -818,207 +1497,571 @@
         </p>
         <a href="#contact" class="cta-btn">Connect With Us — Available 24/7</a>
       </div>
+      <!-- Trust Bar -->
+      <div class="trust-bar">
+        <div class="trust-bar-container">
+          <div class="trust-item">
+            <i class="fas fa-clock"></i>
+            <div class="trust-number">24/7</div>
+            <div class="trust-label">Available Anytime</div>
+          </div>
+          <div class="trust-item">
+            <i class="fas fa-award"></i>
+            <div class="trust-number">15+</div>
+            <div class="trust-label">Years of Service</div>
+          </div>
+          <div class="trust-item">
+            <i class="fas fa-users"></i>
+            <div class="trust-number">5000+</div>
+            <div class="trust-label">Families Served</div>
+          </div>
+          <div class="trust-item">
+            <i class="fas fa-heart"></i>
+            <div class="trust-number">100%</div>
+            <div class="trust-label">Compassionate Care</div>
+          </div>
+        </div>
+      </div>
     </section>
-
     <!-- About Section -->
     <section class="about" id="about">
       <div class="about-container">
-        <h2>Welcome to Tshiamo</h2>
-        <p class="about-intro">
-          For generations, Tshiamo Funeral Home has been a pillar of compassion
-          in our community. We understand that saying farewell is never easy,
-          which is why our dedicated team treats every family with the same
-          care, dignity, and respect we would offer our own loved ones.
-        </p>
-
+        <div class="section-header">
+          <div class="section-label">Who We Are</div>
+          <h2 class="section-title">Welcome to Tshiamo</h2>
+          <p class="section-subtitle">
+            For generations, Tshiamo Funeral Home has been a pillar of
+            compassion in our community. We understand that saying farewell is
+            never easy.
+          </p>
+        </div>
+        <div class="about-content">
+          <div class="about-image">
+            <img
+              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000"
+              alt="Compassionate funeral service team"
+            />
+          </div>
+          <div class="about-text">
+            <h3>Our Story of Compassion</h3>
+            <p>
+              Founded on the principles of dignity, respect, and unwavering
+              compassion, Tshiamo Funeral Home has been serving our community
+              with dedication for over 15 years. Our journey began with a simple
+              mission: to provide families with the support they need during
+              life's most challenging moments.
+            </p>
+            <p>
+              Today, we continue that legacy by treating every family with the
+              same care and respect we would offer our own loved ones. Our team
+              of experienced professionals is committed to creating meaningful
+              experiences that honor each unique life story.
+            </p>
+            <p>
+              From traditional services to contemporary celebrations of life, we
+              work closely with you to ensure every detail reflects your wishes
+              and celebrates your loved one's journey.
+            </p>
+          </div>
+        </div>
         <div class="mission-vision">
           <div class="mv-card">
+            <i class="fas fa-eye"></i>
             <h3>Our Vision</h3>
             <p>
               To be recognized as the most trusted and compassionate funeral
               service provider, creating meaningful experiences that honor
-              life's journey and provide comfort to those we serve.
+              life's journey and provide comfort to those we serve. We envision
+              a future where every family feels supported, understood, and cared
+              for during their time of need.
             </p>
           </div>
           <div class="mv-card">
+            <i class="fas fa-bullseye"></i>
             <h3>Our Mission</h3>
             <p>
               We deliver exceptional, personalized funeral services with
               empathy, professionalism, and integrity. Every ceremony we
               facilitate reflects the unique story of the life being celebrated,
               while providing families with genuine support during their most
-              challenging moments.
+              challenging moments. We are committed to excellence in all we do.
             </p>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- Services Section -->
+    <!-- Services Section with Larger Cards -->
     <section class="services" id="services">
       <div class="services-container">
-        <h2>Our Complete Family of Services</h2>
-        <p class="services-subtitle">
-          Everything you need, all under one caring roof
-        </p>
-
+        <div class="section-header">
+          <div class="section-label">What We Offer</div>
+          <h2 class="section-title">Our Complete Family of Services</h2>
+          <p class="section-subtitle">
+            Everything you need, all under one caring roof. From traditional
+            services to modern celebrations, we're here for you.
+          </p>
+        </div>
         <div class="services-grid">
           <div class="service-card">
-            <img
-              src="https://rileygardnermemorial.com/wp-content/uploads/2022/06/personalized-memorials-green-1-1024x576.jpg"
-              alt="Tombstone Services"
-              class="service-img"
-            />
+            <div class="service-img-container">
+              <img
+                src="https://rileygardnermemorial.com/wp-content/uploads/2022/06/personalized-memorials-green-1-1024x576.jpg"
+                alt="Tombstone Services"
+                class="service-img"
+              />
+              <div class="service-overlay">
+                <i class="fas fa-monument"></i>
+              </div>
+            </div>
             <div class="service-content">
-              <i class="fas fa-monument"></i>
+              <span class="service-badge">Featured Service</span>
               <h3>Tshiamo Tombstone</h3>
               <p>
                 Master craftsmen create lasting tributes that beautifully honor
-                your loved one's memory with precision and care.
+                your loved one's memory. Each tombstone is carefully designed
+                and crafted with precision, ensuring a permanent memorial that
+                stands the test of time.
               </p>
+              <ul class="service-features">
+                <li>
+                  <i class="fas fa-check-circle"></i> Custom design consultation
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Premium granite & marble
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Expert engraving services
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Professional installation
+                </li>
+              </ul>
+              <a href="#contact" class="service-link">
+                Learn More <i class="fas fa-arrow-right"></i>
+              </a>
             </div>
           </div>
-
           <div class="service-card">
-            <img
-              src="https://i0.wp.com/serendipityfood.com/wp-content/uploads/2025/03/Serendipity-Catering--scaled.jpg?resize=1080%2C675&ssl=1"
-              alt="Catering Services"
-              class="service-img"
-            />
+            <div class="service-img-container">
+              <img
+                src="https://i0.wp.com/serendipityfood.com/wp-content/uploads/2025/03/Serendipity-Catering--scaled.jpg?resize=1080%2C675&ssl=1"
+                alt="Catering Services"
+                class="service-img"
+              />
+              <div class="service-overlay">
+                <i class="fas fa-utensils"></i>
+              </div>
+            </div>
             <div class="service-content">
-              <i class="fas fa-utensils"></i>
+              <span class="service-badge">Full Service</span>
               <h3>Tshiamo Catering</h3>
               <p>
                 Thoughtful, elegant meals that bring families together during
-                memorial receptions and gatherings.
+                memorial receptions and gatherings. Our experienced culinary
+                team creates comforting, delicious meals tailored to your
+                cultural traditions and preferences.
               </p>
+              <ul class="service-features">
+                <li><i class="fas fa-check-circle"></i> Customized menus</li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Cultural cuisine
+                  specialists
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Full-service setup &
+                  cleanup
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Dietary accommodations
+                </li>
+              </ul>
+              <a href="#contact" class="service-link">
+                View Menus <i class="fas fa-arrow-right"></i>
+              </a>
             </div>
           </div>
-
           <div class="service-card">
-            <img
-              src="https://galvestonlimo.com/wp-content/uploads/2019/09/Limo-e1569598266248-1-1024x678.jpeg"
-              alt="Chauffeur Services"
-              class="service-img"
-            />
+            <div class="service-img-container">
+              <img
+                src="https://galvestonlimo.com/wp-content/uploads/2019/09/Limo-e1569598266248-1-1024x678.jpeg"
+                alt="Chauffeur Services"
+                class="service-img"
+              />
+              <div class="service-overlay">
+                <i class="fas fa-car-side"></i>
+              </div>
+            </div>
             <div class="service-content">
-              <i class="fas fa-car-side"></i>
+              <span class="service-badge">Premium Service</span>
               <h3>Tshiamo Chauffeurs</h3>
               <p>
                 Professional, dignified transportation ensuring every journey is
-                handled with utmost respect.
+                handled with utmost respect. Our fleet of luxury vehicles and
+                trained drivers provide safe, comfortable transport for families
+                and guests during services.
               </p>
+              <ul class="service-features">
+                <li>
+                  <i class="fas fa-check-circle"></i> Luxury vehicle fleet
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Professional drivers
+                </li>
+                <li><i class="fas fa-check-circle"></i> Punctual & reliable</li>
+                <li><i class="fas fa-check-circle"></i> Flexible scheduling</li>
+              </ul>
+              <a href="#contact" class="service-link">
+                Book Transport <i class="fas fa-arrow-right"></i>
+              </a>
             </div>
           </div>
-
           <div class="service-card">
-            <img
-              src="https://www.shutterstock.com/image-photo/loyalty-points-card-customer-service-600nw-1799845048.jpg"
-              alt="T-Rewards Program"
-              class="service-img"
-            />
+            <div class="service-img-container">
+              <img
+                src="https://www.shutterstock.com/image-photo/loyalty-points-card-customer-service-600nw-1799845048.jpg"
+                alt="T-Rewards Program"
+                class="service-img"
+              />
+              <div class="service-overlay">
+                <i class="fas fa-gift"></i>
+              </div>
+            </div>
             <div class="service-content">
-              <i class="fas fa-gift"></i>
+              <span class="service-badge">Loyalty Program</span>
               <h3>T-Rewards</h3>
               <p>
                 Our loyalty program recognizes your trust, offering exclusive
-                benefits and personalized care options.
+                benefits and personalized care options. As a valued member,
+                enjoy priority scheduling, special discounts, and complimentary
+                services tailored to your needs.
               </p>
+              <ul class="service-features">
+                <li>
+                  <i class="fas fa-check-circle"></i> Exclusive member benefits
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Priority service booking
+                </li>
+                <li><i class="fas fa-check-circle"></i> Special discounts</li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Complimentary
+                  consultations
+                </li>
+              </ul>
+              <a href="#contact" class="service-link">
+                Join Program <i class="fas fa-arrow-right"></i>
+              </a>
             </div>
           </div>
-
           <div class="service-card">
-            <img
-              src="https://pixnio.com/free-images/2020/07/07/2020-07-07-09-31-26-1200x800.jpg"
-              alt="Flower Services"
-              class="service-img"
-            />
+            <div class="service-img-container">
+              <img
+                src="https://pixnio.com/free-images/2020/07/07/2020-07-07-09-31-26-1200x800.jpg"
+                alt="Flower Services"
+                class="service-img"
+              />
+              <div class="service-overlay">
+                <i class="fas fa-leaf"></i>
+              </div>
+            </div>
             <div class="service-content">
-              <i class="fas fa-leaf"></i>
+              <span class="service-badge">Artisan Service</span>
               <h3>Tshiamo Flowers</h3>
               <p>
                 Stunning floral arrangements designed to express love, respect,
-                and remembrance beautifully.
+                and remembrance beautifully. Our skilled florists create custom
+                tributes that reflect your loved one's personality and celebrate
+                their unique life story.
               </p>
+              <ul class="service-features">
+                <li>
+                  <i class="fas fa-check-circle"></i> Custom floral designs
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Fresh, premium blooms
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Symbolic arrangements
+                </li>
+                <li><i class="fas fa-check-circle"></i> Timely delivery</li>
+              </ul>
+              <a href="#contact" class="service-link">
+                Order Flowers <i class="fas fa-arrow-right"></i>
+              </a>
             </div>
           </div>
-
           <div class="service-card">
-            <img
-              src="https://images.squarespace-cdn.com/content/v1/6621e1e05bafee2ba59a718f/0c915669-0ac5-43f8-b580-80a896583c68/Screenshot+2025-01-03+at+6.14.07%E2%80%AFPM.png"
-              alt="Support Services"
-              class="service-img"
-            />
+            <div class="service-img-container">
+              <img
+                src="https://images.squarespace-cdn.com/content/v1/6621e1e05bafee2ba59a718f/0c915669-0ac5-43f8-b580-80a896583c68/Screenshot+2025-01-03+at+6.14.07%E2%80%AFPM.png"
+                alt="Support Services"
+                class="service-img"
+              />
+              <div class="service-overlay">
+                <i class="fas fa-hands-helping"></i>
+              </div>
+            </div>
             <div class="service-content">
-              <i class="fas fa-hands-helping"></i>
+              <span class="service-badge">Ongoing Care</span>
               <h3>Tshiamo Support</h3>
               <p>
                 Compassionate emotional guidance and resources to help you
-                through life's most difficult transitions.
+                through life's most difficult transitions. Our grief support
+                services include counseling, support groups, and resources to
+                help you navigate your healing journey.
               </p>
+              <ul class="service-features">
+                <li><i class="fas fa-check-circle"></i> Grief counseling</li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Support group facilitation
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Educational resources
+                </li>
+                <li><i class="fas fa-check-circle"></i> 24/7 crisis support</li>
+              </ul>
+              <a href="#contact" class="service-link">
+                Get Support <i class="fas fa-arrow-right"></i>
+              </a>
             </div>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-      <div class="testimonials-container">
-        <h2>What Families Say</h2>
-        <p class="testimonials-subtitle">
-          Heartfelt words from those we've served
-        </p>
-
-        <div class="testimonials-grid">
-          <div class="testimonial-card">
+    <!-- Why Choose Us Section - NEW -->
+    <section class="why-choose" id="why-choose">
+      <div class="why-choose-container">
+        <div class="section-header">
+          <div class="section-label">Our Commitment</div>
+          <h2 class="section-title">Why Families Choose Tshiamo</h2>
+          <p class="section-subtitle">
+            We go beyond service — we provide genuine care, support, and peace
+            of mind during life's most challenging moments.
+          </p>
+        </div>
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="fas fa-hand-holding-heart"></i>
+            </div>
+            <h3>Compassionate Care</h3>
             <p>
-              "Tshiamo handled everything with such grace and compassion. They
-              truly made a difficult time more bearable."
+              Our team treats every family with genuine empathy and
+              understanding, ensuring you feel supported throughout your journey
+              with us.
             </p>
-            <h4>— The Smith Family</h4>
           </div>
-          <div class="testimonial-card">
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <h3>Experienced Professionals</h3>
             <p>
-              "Professional, kind, and attentive to every detail. We couldn't
-              have asked for better support."
+              With over 15 years of service, our knowledgeable staff brings
+              expertise and wisdom to every arrangement we facilitate.
             </p>
-            <h4>— Maria J.</h4>
           </div>
-          <div class="testimonial-card">
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="fas fa-palette"></i>
+            </div>
+            <h3>Personalized Services</h3>
             <p>
-              "Their team went above and beyond to honor our loved one's wishes.
-              Highly recommended."
+              We create unique, meaningful ceremonies that reflect each
+              individual's life story, values, and cultural traditions.
             </p>
-            <h4>— David K.</h4>
+          </div>
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Transparent Pricing</h3>
+            <p>
+              Clear, honest pricing with no hidden fees ensures you can make
+              informed decisions without financial surprises.
+            </p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="fas fa-globe-africa"></i>
+            </div>
+            <h3>Cultural Sensitivity</h3>
+            <p>
+              We honor diverse traditions and customs, providing culturally
+              appropriate services that respect your heritage and beliefs.
+            </p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon">
+              <i class="fas fa-headset"></i>
+            </div>
+            <h3>24/7 Availability</h3>
+            <p>
+              Day or night, we're here when you need us most, providing
+              immediate support and guidance without delay.
+            </p>
           </div>
         </div>
       </div>
     </section>
-
+    <!-- Process Section - ALTERNATING TIMELINE -->
+    <section class="process">
+      <div class="process-container">
+        <div class="section-header">
+          <div class="section-label">How We Help</div>
+          <h2 class="section-title">Our Caring Process</h2>
+          <p class="section-subtitle">
+            From first contact to final farewell, we guide you through every
+            step with compassion and professionalism.
+          </p>
+        </div>
+        <div class="process-timeline">
+          <!-- Step 1 - Left -->
+          <div class="timeline-row">
+            <div class="timeline-content timeline-left">
+              <h3>Initial Consultation</h3>
+              <p>
+                We meet with you to understand your needs, preferences, and
+                cultural traditions. Our caring advisors listen attentively and
+                answer all your questions with patience and clarity.
+              </p>
+            </div>
+            <div class="timeline-center">
+              <div class="timeline-circle">1</div>
+            </div>
+            <div class="timeline-content timeline-right timeline-empty"></div>
+          </div>
+          <!-- Step 2 - Right -->
+          <div class="timeline-row">
+            <div class="timeline-content timeline-left timeline-empty"></div>
+            <div class="timeline-center">
+              <div class="timeline-circle">2</div>
+            </div>
+            <div class="timeline-content timeline-right">
+              <h3>Personalized Planning</h3>
+              <p>
+                Together, we create a meaningful ceremony that honors your loved
+                one's unique life. We handle all details, from venue selection
+                to program design, ensuring everything reflects your vision.
+              </p>
+            </div>
+          </div>
+          <!-- Step 3 - Left -->
+          <div class="timeline-row">
+            <div class="timeline-content timeline-left">
+              <h3>Comprehensive Coordination</h3>
+              <p>
+                Our team manages all logistics, including documentation, venue
+                preparation, transportation, and vendor coordination, so you can
+                focus on what matters most — being with family.
+              </p>
+            </div>
+            <div class="timeline-center">
+              <div class="timeline-circle">3</div>
+            </div>
+            <div class="timeline-content timeline-right timeline-empty"></div>
+          </div>
+          <!-- Step 4 - Right -->
+          <div class="timeline-row">
+            <div class="timeline-content timeline-left timeline-empty"></div>
+            <div class="timeline-center">
+              <div class="timeline-circle">4</div>
+            </div>
+            <div class="timeline-content timeline-right">
+              <h3>Dignified Service</h3>
+              <p>
+                On the day of the service, we ensure everything runs smoothly
+                and respectfully. Our staff is present to support you and handle
+                any needs that arise with grace and discretion.
+              </p>
+            </div>
+          </div>
+          <!-- Step 5 - Left -->
+          <div class="timeline-row">
+            <div class="timeline-content timeline-left">
+              <h3>Ongoing Support</h3>
+              <p>
+                Our care doesn't end with the service. We provide grief support
+                resources, follow-up consultations, and continued assistance as
+                you navigate your healing journey.
+              </p>
+            </div>
+            <div class="timeline-center">
+              <div class="timeline-circle">5</div>
+            </div>
+            <div class="timeline-content timeline-right timeline-empty"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+      <div class="testimonials-container">
+        <div class="section-header">
+          <div class="section-label">Client Stories</div>
+          <h2 class="section-title">What Families Say</h2>
+          <p class="section-subtitle">
+            Heartfelt words from those we've had the honor to serve
+          </p>
+        </div>
+        <div class="carousel-wrapper">
+          <div class="carousel-container">
+            <div class="carousel-track" id="carousel-track">
+              <!-- Testimonials will be inserted here by JavaScript -->
+            </div>
+          </div>
+        </div>
+        <div class="carousel-nav">
+          <button
+            class="carousel-btn prev-btn"
+            id="prev-btn"
+            aria-label="Previous testimonial"
+          >
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="carousel-dots" id="carousel-dots">
+            <!-- Dots will be generated by JavaScript -->
+          </div>
+          <button
+            class="carousel-btn next-btn"
+            id="next-btn"
+            aria-label="Next testimonial"
+          >
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
     <!-- Contact Section -->
     <section class="contact" id="contact">
       <div class="contact-container">
-        <h2>We're Here for You</h2>
-        <p class="contact-subtitle">Reach out anytime — day or night</p>
-
+        <div class="section-header">
+          <div class="section-label">Get In Touch</div>
+          <h2 class="section-title">We're Here for You</h2>
+          <p class="section-subtitle">
+            Reach out anytime — day or night. Our compassionate team is always
+            ready to help.
+          </p>
+        </div>
         <div class="contact-grid">
           <div class="contact-info">
             <h3>Contact Information</h3>
-
             <div class="contact-item">
-              <i class="fas fa-phone"></i>
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
               <div>
-                <h4>Phone</h4>
+                <h4>Phone Numbers</h4>
                 <p><a href="tel:0106345204">010 634 5204</a></p>
                 <p><a href="tel:0742854071">074 285 4071</a></p>
               </div>
             </div>
-
             <div class="contact-item">
-              <i class="fas fa-envelope"></i>
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
               <div>
-                <h4>Email</h4>
+                <h4>Email Address</h4>
                 <p>
                   <a href="mailto:info@tshiamofuneralhome.co.za"
                     >info@tshiamofuneralhome.co.za</a
@@ -1026,9 +2069,10 @@
                 </p>
               </div>
             </div>
-
             <div class="contact-item">
-              <i class="fas fa-globe"></i>
+              <div class="contact-icon">
+                <i class="fas fa-globe"></i>
+              </div>
               <div>
                 <h4>Website</h4>
                 <p>
@@ -1038,33 +2082,38 @@
                 </p>
               </div>
             </div>
-
             <div class="contact-item">
-              <i class="fas fa-clock"></i>
+              <div class="contact-icon">
+                <i class="fas fa-clock"></i>
+              </div>
               <div>
                 <h4>Availability</h4>
                 <p>24 hours a day, 7 days a week</p>
+                <p style="color: var(--primary); font-weight: 600">
+                  Always here when you need us
+                </p>
               </div>
             </div>
           </div>
-
           <form
             class="contact-form"
             action="https://formspree.io/f/your-id"
             method="POST"
           >
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Full Name"
-              required
-            />
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Contact Number"
-              required
-            />
+            <div class="form-row">
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Full Name"
+                required
+              />
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Contact Number"
+                required
+              />
+            </div>
             <input
               type="email"
               name="email"
@@ -1081,85 +2130,141 @@
         </div>
       </div>
     </section>
-
     <!-- Careers Section -->
     <section class="careers" id="careers">
       <div class="careers-container">
-        <h2>Join Our Family</h2>
-        <p class="careers-subtitle">
-          Make a meaningful difference in people's lives
-        </p>
-
+        <div class="section-header">
+          <div class="section-label">Join Our Team</div>
+          <h2 class="section-title">Build a Meaningful Career</h2>
+          <p class="section-subtitle">
+            Make a real difference in people's lives every single day
+          </p>
+        </div>
         <p class="careers-intro">
           At Tshiamo, we believe in nurturing compassionate professionals who
           are dedicated to serving families with dignity and respect. If you're
-          looking for a meaningful career where you can make a real difference,
-          we'd love to hear from you.
+          looking for a meaningful career where you can make a real difference
+          in people's lives during their most vulnerable moments, we'd love to
+          hear from you. Join our family of caring individuals.
         </p>
-
         <div class="positions-grid">
           <div class="position-card">
-            <i class="fas fa-hands-helping"></i>
+            <div class="position-icon">
+              <i class="fas fa-hands-helping"></i>
+            </div>
             <h3>Funeral Assistant</h3>
             <p>
-              Support families with empathy during services and preparations.
+              Support families with empathy and professionalism during services
+              and preparations. Help create meaningful experiences.
             </p>
           </div>
-
           <div class="position-card">
-            <i class="fas fa-car"></i>
+            <div class="position-icon">
+              <i class="fas fa-car"></i>
+            </div>
             <h3>Professional Driver</h3>
             <p>
-              Provide safe, dignified transportation with utmost discretion.
+              Provide safe, dignified transportation with utmost discretion and
+              care for families and guests.
             </p>
           </div>
-
           <div class="position-card">
-            <i class="fas fa-clipboard"></i>
+            <div class="position-icon">
+              <i class="fas fa-clipboard"></i>
+            </div>
             <h3>Administrative Clerk</h3>
             <p>
-              Handle documentation and coordination with precision and care.
+              Handle documentation and coordination with precision, ensuring
+              smooth operations and family satisfaction.
             </p>
           </div>
         </div>
-
         <div class="apply-box">
-          <p>Ready to join our compassionate team?</p>
+          <h3>Ready to Join Our Compassionate Team?</h3>
+          <p>
+            Send your CV and cover letter to start your journey with us today.
+          </p>
           <a href="mailto:jobs@tshiamofuneralhome.co.za"
             >jobs@tshiamofuneralhome.co.za</a
           >
         </div>
       </div>
     </section>
-
     <!-- Footer -->
     <footer>
-      <h3>Tshiamo Funeral Home</h3>
-      <p>
-        With compassion, dignity, and respect — we're honored to serve our
-        community in their most meaningful moments.
-      </p>
-
-      <div class="footer-nav">
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="#careers">Careers</a></li>
-        </ul>
+      <div class="footer-content">
+        <div>
+          <div class="footer-logo-container">
+            <!-- Updated to use the new full logo image -->
+            <img
+              src="https://tshiamofuneralhome.co.za/assets/Tshiamo-%20Logo.png"
+              alt="Tshiamo Modibedi Funeral Services Logo"
+              class="footer-full-logo"
+            />
+          </div>
+          <p class="footer-about">
+            With compassion, dignity, and respect — we're honored to serve our
+            community in their most meaningful moments. Available 24/7 for your
+            family.
+          </p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#why-choose">Why Choose Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Tombstone</a></li>
+            <li><a href="#services">Catering</a></li>
+            <li><a href="#services">Chauffeurs</a></li>
+            <li><a href="#services">T-Rewards</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <ul>
+            <li>
+              <a href="tel:0106345204">
+                <i class="fas fa-phone"></i> 010 634 5204
+              </a>
+            </li>
+            <li>
+              <a href="tel:0742854071">
+                <i class="fas fa-phone"></i> 074 285 4071
+              </a>
+            </li>
+            <li>
+              <a href="mailto:info@tshiamofuneralhome.co.za">
+                <i class="fas fa-envelope"></i> Email Us
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-
-      <div class="social-links">
-        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <div class="footer-bottom">
+        <p>
+          © 2026 Tshiamo Modibedi Funeral Services. All rights reserved. |
+          Designed with care
+        </p>
       </div>
-
-      <p class="copyright">© 2026 Tshiamo Funeral Home. All rights reserved.</p>
     </footer>
-
     <!-- Floating Buttons -->
     <div class="floating-btns">
       <a
@@ -1173,15 +2278,170 @@
         <i class="fas fa-phone"></i>
       </a>
     </div>
-
     <script>
+      // Testimonials data
+      const testimonialsData = [
+        {
+          text: "Tshiamo Funeral Home exceeded our expectations in every way. They took care of every detail, from the funeral service to the burial. Their staff was compassionate, understanding, and professional. We couldn't have asked for more. Thank you, Tshiamo, for helping us say goodbye to my beloved mother.",
+          author: "Ms. Nokuthula Zikalala",
+        },
+        {
+          text: "I was blown away by the level of service and care provided by Tshiamo Funeral Home. When we lost my sister, they were there for us every step of the way. Their team was kind, supportive, and understanding. We appreciate everything they did for us.",
+          author: "Ms. Nokuthula Zikalala",
+        },
+        {
+          text: "Tshiamo Funeral Home helped us during one of the most difficult times of our lives. They took care of everything, from the arrangements to the burial. Their staff was professional, caring, and compassionate. We can't thank them enough for their support.",
+          author: "Mr. Z Mkhaliphi",
+        },
+        {
+          text: "I'm still in shock after losing my sister, but Tshiamo Funeral Home made the funeral process so much easier. Their team was understanding, supportive, and professional. They helped us celebrate my sister's life with dignity and respect. Thank you, Tshiamo, for being there for us.",
+          author: "Ms. Wakhekile Sithole",
+        },
+        {
+          text: "Tshiamo Funeral Home is the best! They helped us bury our loved one with dignity and respect. Their staff was caring, compassionate, and professional. They went above and beyond to ensure that everything was perfect. We can't recommend them enough.",
+          author: "The Mtshali Family",
+        },
+        {
+          text: "From the moment we contacted Tshiamo, we felt supported and cared for. They handled all the arrangements with such professionalism and compassion. Their attention to detail and genuine empathy made a difficult time more bearable. Highly recommended.",
+          author: "Mrs. Dlamini",
+        },
+      ];
+      // Carousel variables
+      let currentIndex = 0;
+      let cardsPerView = 3;
+      let carouselTrack, dotsContainer, prevBtn, nextBtn;
+      let autoSlideInterval;
+      function updateCardsPerView() {
+        if (window.innerWidth <= 768) {
+          cardsPerView = 1;
+        } else if (window.innerWidth <= 1200) {
+          cardsPerView = 2;
+        } else {
+          cardsPerView = 3;
+        }
+        updateCarousel();
+        generateDots();
+      }
+      function generateTestimonials() {
+        const container = document.getElementById("carousel-track");
+        container.innerHTML = "";
+        testimonialsData.forEach((testimonial, index) => {
+          const testimonialCard = document.createElement("div");
+          testimonialCard.className = "testimonial-card";
+          testimonialCard.setAttribute("data-index", index);
+          testimonialCard.innerHTML = `
+            <div class="testimonial-header">
+              <div class="testimonial-logo">
+                <span class="logo-green">T</span>FH
+              </div>
+              <h3>CLIENT TESTIMONIAL</h3>
+            </div>
+            <div class="testimonial-content">
+              <div class="quote-mark">"</div>
+              <blockquote>
+                ${testimonial.text}
+              </blockquote>
+            </div>
+            <div class="testimonial-footer">
+              <p class="client-name">${testimonial.author}</p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          `;
+          container.appendChild(testimonialCard);
+        });
+      }
+      function generateDots() {
+        dotsContainer = document.getElementById("carousel-dots");
+        const totalDots = Math.ceil(testimonialsData.length / cardsPerView);
+        dotsContainer.innerHTML = "";
+        for (let i = 0; i < totalDots; i++) {
+          const dot = document.createElement("div");
+          dot.className = "dot";
+          if (i === 0) dot.classList.add("active");
+          dot.setAttribute("data-dot", i);
+          dot.addEventListener("click", () => goToSlide(i));
+          dotsContainer.appendChild(dot);
+        }
+      }
+      function updateCarousel() {
+        if (!carouselTrack) return;
+        const cardWidth = carouselTrack.children[0].offsetWidth + 30;
+        const maxIndex = Math.max(0, testimonialsData.length - cardsPerView);
+        currentIndex = Math.min(currentIndex, maxIndex);
+        carouselTrack.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        const totalDots = Math.ceil(testimonialsData.length / cardsPerView);
+        const activeDot = Math.floor(currentIndex / cardsPerView);
+        document.querySelectorAll(".dot").forEach((dot, index) => {
+          dot.classList.toggle("active", index === activeDot);
+        });
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex >= maxIndex;
+      }
+      function goToSlide(index) {
+        currentIndex = index * cardsPerView;
+        updateCarousel();
+        resetAutoSlide();
+      }
+      function nextSlide() {
+        const maxIndex = Math.max(0, testimonialsData.length - cardsPerView);
+        if (currentIndex < maxIndex) {
+          currentIndex += cardsPerView;
+        } else {
+          currentIndex = 0;
+        }
+        updateCarousel();
+        resetAutoSlide();
+      }
+      function prevSlide() {
+        const maxIndex = Math.max(0, testimonialsData.length - cardsPerView);
+        if (currentIndex > 0) {
+          currentIndex -= cardsPerView;
+        } else {
+          currentIndex = maxIndex;
+        }
+        updateCarousel();
+        resetAutoSlide();
+      }
+      function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+      }
+      function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 5000);
+      }
+      function initCarousel() {
+        carouselTrack = document.getElementById("carousel-track");
+        dotsContainer = document.getElementById("carousel-dots");
+        prevBtn = document.getElementById("prev-btn");
+        nextBtn = document.getElementById("next-btn");
+        generateTestimonials();
+        updateCardsPerView();
+        generateDots();
+        prevBtn.addEventListener("click", prevSlide);
+        nextBtn.addEventListener("click", nextSlide);
+        startAutoSlide();
+        window.addEventListener("resize", () => {
+          updateCardsPerView();
+        });
+        carouselTrack.addEventListener("mouseenter", () => {
+          clearInterval(autoSlideInterval);
+        });
+        carouselTrack.addEventListener("mouseleave", () => {
+          startAutoSlide();
+        });
+      }
       // Navbar scroll effect
       window.addEventListener("scroll", () => {
         const nav = document.getElementById("nav");
         nav.classList.toggle("scrolled", window.scrollY > 50);
       });
-
-      // Smooth scroll for navigation links
+      // Smooth scroll
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
           e.preventDefault();
@@ -1194,11 +2454,9 @@
           }
         });
       });
-
-      // Mobile menu toggle
+      // Mobile menu
       const mobileToggle = document.querySelector(".mobile-toggle");
       const navUl = document.querySelector("nav ul");
-
       mobileToggle.addEventListener("click", () => {
         navUl.style.display = navUl.style.display === "flex" ? "none" : "flex";
         if (navUl.style.display === "flex") {
@@ -1212,6 +2470,8 @@
           navUl.style.boxShadow = "0 4px 20px rgba(0,0,0,0.1)";
         }
       });
+      // Initialize
+      document.addEventListener("DOMContentLoaded", initCarousel);
     </script>
   </body>
 </html>
